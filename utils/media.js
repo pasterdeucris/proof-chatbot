@@ -1,9 +1,10 @@
-import ffmpeg from 'fluent-ffmpeg';
-import ffmpegInstaller from '@ffmpeg-installer/ffmpeg';
+
+const ffmpeg = require('fluent-ffmpeg'); 
+const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg'); 
 ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 
 
-export function convertOggToMp3(inputPath, outputPath) {
+function convertOggToMp3(inputPath, outputPath) {
     return new Promise((resolve, reject) => {
       ffmpeg(inputPath)
         .toFormat('mp3')
@@ -13,7 +14,7 @@ export function convertOggToMp3(inputPath, outputPath) {
     });
   }
   
-export async function transcribeAudio(filePath) {
+async function transcribeAudio(filePath) {
     try {
       const fileStream = fs.createReadStream(filePath);
       fileStream.on('error', error => {
@@ -37,6 +38,10 @@ export async function transcribeAudio(filePath) {
   }
   
   
+  module.exports = {
+    transcribeAudio,
+    convertOggToMp3
+  };
   
   
   //----------------------AUDIO THINGS----------------------

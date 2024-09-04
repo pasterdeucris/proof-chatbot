@@ -1,4 +1,5 @@
 
+
 export function convertTimestampToDate(timestamp) {
     // Convert milliseconds to a Date object
     const date = new Date(timestamp);
@@ -13,3 +14,8 @@ export function convertTimestampToDate(timestamp) {
     return `${day} ${month} ${year}`;
   }
   
+
+  
+module.exports = {
+  convertTimestampToDate
+};

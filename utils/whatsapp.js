@@ -1,6 +1,6 @@
-import axios from "axios";
+const axios = require("axios");
 
-export function message(phon_no_id, from, msg) {
+ function message(phon_no_id, from, msg) {
     axios({
         method:"POST",
         url:"https://graph.facebook.com/v20.0/"+phon_no_id+"/messages?access_token="+token,
@@ -19,7 +19,7 @@ export function message(phon_no_id, from, msg) {
     });
 }
 
-export function messageP(phon_no_id, from, msg) {
+function messageP(phon_no_id, from, msg) {
   axios({
       method:"POST",
       url:"https://graph.facebook.com/v20.0/"+phon_no_id+"/messages?access_token="+token,
@@ -38,7 +38,7 @@ export function messageP(phon_no_id, from, msg) {
   });
 }
 
-export function sendCatalogMessage(phon_no_id, from, text) {
+function sendCatalogMessage(phon_no_id, from, text) {
   axios({
       method: "POST",
       url: "https://graph.facebook.com/v20.0/" + phon_no_id + "/messages?access_token=" + token,
@@ -67,7 +67,7 @@ export function sendCatalogMessage(phon_no_id, from, text) {
 }
 
 
-export function ask2options(phon_no_id, from, ask, op1, op2) {
+function ask2options(phon_no_id, from, ask, op1, op2) {
     axios({
         method:"POST",
         url:"https://graph.facebook.com/v20.0/"+phon_no_id+"/messages?access_token="+token,
@@ -107,7 +107,7 @@ export function ask2options(phon_no_id, from, ask, op1, op2) {
     });
 }
 
-export function ask3options(phon_no_id, from, ask, op1, op2, op3) {
+function ask3options(phon_no_id, from, ask, op1, op2, op3) {
   axios({
       method:"POST",
       url:"https://graph.facebook.com/v19.0/"+phon_no_id+"/messages?access_token="+token,
@@ -155,7 +155,7 @@ export function ask3options(phon_no_id, from, ask, op1, op2, op3) {
 }
 
 
-export function images(phon_no_id, from) {
+function images(phon_no_id, from) {
   console.log("INSIDE IMG Tallas");
   axios({
       method:"POST",
@@ -175,8 +175,7 @@ export function images(phon_no_id, from) {
       });
 }
 
-
-export async function getURL(id) {
+async function getURL(id) {
   try {
     const response = await axios({
       method: 'GET',
@@ -194,7 +193,7 @@ export async function getURL(id) {
   }
 }
 
-export async function getAudio(url) {
+async function getAudio(url) {
   try {
     const response = await axios({
       method: 'GET',
@@ -213,7 +212,7 @@ export async function getAudio(url) {
   }
 }
 
-export function reservation(phon_no_id, from) {
+function reservation(phon_no_id, from) {
   axios({
       method:"POST",
       url:"https://graph.facebook.com/v20.0/"+phon_no_id+"/messages?access_token="+token,
@@ -457,7 +456,7 @@ export function reservation(phon_no_id, from) {
       });
 }
 
-export function feedback(phon_no_id, from) {
+function feedback(phon_no_id, from) {
   axios({
       method:"POST",
       url:"https://graph.facebook.com/v20.0/"+phon_no_id+"/messages?access_token="+token,
@@ -577,3 +576,16 @@ export function feedback(phon_no_id, from) {
   
       });
 }
+
+module.exports = {
+  message,
+  messageP,
+  sendCatalogMessage,
+  ask2options,
+  ask3options,
+  images,
+  getURL,
+  getAudio,
+  reservation,
+  feedback
+};

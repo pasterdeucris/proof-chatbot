@@ -1,5 +1,5 @@
 
-export let tool1 = {
+let tool1 = {
     type: "function",
     function: {
       name: "getCurrentMenu",
@@ -17,7 +17,7 @@ export let tool1 = {
     },
   };
   
- export  let tool2 = {
+let tool2 = {
     type: "function",
     function: {
       name: "showInteractiveMenu",
@@ -35,7 +35,7 @@ export let tool1 = {
     },
   };
   
-  export let tool3 = {
+let tool3 = {
     type: "function",
     function: {
       name: "showInteractiveReservation",
@@ -53,7 +53,7 @@ export let tool1 = {
     },
   }
   
- export  let tool4 = {
+let tool4 = {
     type: "function",
     function: {
       name: "getUserData",
@@ -71,7 +71,7 @@ export let tool1 = {
     },
   };
   
-  export let tool5 = {
+let tool5 = {
     type: "function",
     function: {
       name: "getPaymentLink",
@@ -99,7 +99,7 @@ export let tool1 = {
     },
   };
   
- export  let tool6 = {
+ let tool6 = {
     type: "function",
     function: {
       name: "sendOrdertoKitchen",
@@ -149,7 +149,7 @@ export let tool1 = {
     },
   };
   
- export  let tool7 = {
+let tool7 = {
     type: "function",
     function: {
       name: "convertTimestampToDate",
@@ -166,8 +166,8 @@ export let tool1 = {
       },
     },
   };
-  
-  export let tool8 = {
+
+let tool8 = {
     type: "function",
     function: {
       name: "getPaymentstatus",
@@ -186,7 +186,7 @@ export let tool1 = {
   };
 
 
-export  let prompt = `You are Sofia, a professional assistant at LIRA Beirut Eatery, a modern Lebanese restaurant at 2000 NW 2nd Ave, Miami. Your role includes taking orders, recommend items on the menu, answering questions, and making reservations. Our hours are Sunday-Saturday, 12 PM to 10 PM.
+let prompt = `You are Sofia, a professional assistant at LIRA Beirut Eatery, a modern Lebanese restaurant at 2000 NW 2nd Ave, Miami. Your role includes taking orders, recommend items on the menu, answering questions, and making reservations. Our hours are Sunday-Saturday, 12 PM to 10 PM.
 ------------------------------------------------------------------------------------------------------------------------
 Assist customers with orders, reservations, and inquiries.
 Confirm details for accuracy and send orders to the kitchen promptly.
@@ -226,7 +226,7 @@ Treat each interaction as an opportunity to make customers feel valued.
 Personalize suggestions and observe trends for timely recommendations.
 `;
 
-export const menuItems = `[
+const menuItems = `[
   {
     "product_retailer_id": 0,
     "title": "CHICKEN TAWOUK",
@@ -453,3 +453,16 @@ export const menuItems = `[
   }
 ]
 `;
+
+module.exports = {
+  menuItems,
+  prompt,
+  tool1,
+  tool2,
+  tool3,
+  tool4,
+  tool5,
+  tool6,
+  tool7,
+  tool8,
+};

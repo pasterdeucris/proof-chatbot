@@ -1,6 +1,6 @@
-import { client } from '../database/database.mjs'
+const { client } = require('../database/database.js');
 
-export async function getPaymentStatus(Link) {
+async function getPaymentStatus(Link) {
     let status = "Pending";
     try {
       await client.connect();
@@ -25,7 +25,7 @@ export async function getPaymentStatus(Link) {
     return status; // Return the status
   }
   
-  export async function saveLink(from, Link) {
+async function saveLink(from, Link) {
     try {
       await client.connect();
       const db = client.db("value");
@@ -41,7 +41,7 @@ export async function getPaymentStatus(Link) {
     }
   }
   
- export  async function updatePaymentstatus(Link, Id, status) {
+async function updatePaymentstatus(Link, Id, status) {
     try {
       await client.connect();
       const db = client.db("value");
@@ -66,7 +66,7 @@ export async function getPaymentStatus(Link) {
   
   
 
-export async function getPaymentLink(name, amount) {
+async function getPaymentLink(name, amount) {
     try {
         const response = await axios({
             method: "POST",
@@ -95,3 +95,10 @@ export async function getPaymentLink(name, amount) {
     }
   }
   
+
+module.exports = {
+    getPaymentLink,
+    updatePaymentstatus,
+    saveLink,
+    getPaymentStatus  
+  };

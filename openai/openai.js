@@ -1,12 +1,9 @@
+const { OpenAI } = require("openai");
 
-import { OpenAI } from "openai";
-
-import { tool1,tool2,tool3,tool4,tool5,tool6,tool7,tool8,prompt } from './utils/constants.mjs'
-import {messageP,reservation, feedback, sendCatalogMessage } from './utils/whatsapp.mjs'
-import {getPaymentStatus,saveLink,getPaymentLink} from './payment/payment.mjs'
-import {AssignFlow,getName} from './database/database.mjs'
-
-
+const { tool1, tool2, tool3, tool4, tool5, tool6, tool7, tool8, prompt } = require('./utils/constants.js');
+const { messageP, reservation, feedback, sendCatalogMessage } = require('./utils/whatsapp.js');
+const { getPaymentStatus, saveLink, getPaymentLink } = require('./payment/payment.js');
+const { AssignFlow, getName } = require('./database/database.js');
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY // This is also the default, can be omitted
@@ -140,7 +137,7 @@ const handleRequiresAction = async (run, thread, phon_no_id, from) => {
   
 
   
-export async function createAssistant() {
+async function createAssistant() {
     try {
       assistant = await openai.beta.assistants.create({
         name: "Lira Assitant -- REVISION",
@@ -155,7 +152,7 @@ export async function createAssistant() {
     }
   }
   
-export async function createThread() {
+async function createThread() {
     try {
       thread = await openai.beta.threads.create();
       return thread;
@@ -183,7 +180,7 @@ async function addMessage(threadId, inp, rolee = "user") {
   }
   
   
-export const handleRunStatus = async (run, thread, phon_no_id, from) => {
+ const handleRunStatus = async (run, thread, phon_no_id, from) => {
     // Check if the run is completed
     if (run.status === 'completed') {
       console.log(run.status);
@@ -235,7 +232,7 @@ async function pollRun(Instruc, thread, phon_no_id, from){//, Instruc = "If a cl
 
 
 
-export async function main1(input,Instruc = null,thread = null, phon_no_id=null, from=null) {
+async function main1(input,Instruc = null,thread = null, phon_no_id=null, from=null) {
     try {
       if (!assistant) assistant = await createAssistant();
       if(!thread) thread = await createThread();
@@ -249,3 +246,12 @@ export async function main1(input,Instruc = null,thread = null, phon_no_id=null,
       console.error("Error in main1 function:", error);
     }
   }
+
+
+module.exports = {
+    createAssistant,
+    createThread,
+    handleRunStatus,
+    main1
+  };
+  
