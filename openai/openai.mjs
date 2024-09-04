@@ -1,10 +1,10 @@
 
-const { OpenAI } = require("openai");//OPEN AI
+import { OpenAI } from "openai";
 
-import { tool1,tool2,tool3,tool4,tool5,tool6,tool7,tool8,prompt } from './utils/constants.js'
-import {messageP,reservation, feedback, sendCatalogMessage } from './utils/whatsapp.js'
-import {getPaymentStatus,saveLink,getPaymentLink} from './payment/payment.js'
-import {AssignFlow,getName} from './database/database.js'
+import { tool1,tool2,tool3,tool4,tool5,tool6,tool7,tool8,prompt } from './utils/constants.mjs'
+import {messageP,reservation, feedback, sendCatalogMessage } from './utils/whatsapp.mjs'
+import {getPaymentStatus,saveLink,getPaymentLink} from './payment/payment.mjs'
+import {AssignFlow,getName} from './database/database.mjs'
 
 
 

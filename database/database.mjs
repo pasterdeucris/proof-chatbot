@@ -1,5 +1,5 @@
 
-const { MongoClient } = require('mongodb');//Database
+import { MongoClient } from 'mongodb';
 const uri = process.env.MONGO;//Database
 
 export const client = new MongoClient(uri);//Database

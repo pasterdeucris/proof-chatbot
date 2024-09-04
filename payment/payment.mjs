@@ -1,4 +1,4 @@
-import { client } from '../database/database.js'
+import { client } from '../database/database.mjs'
 
 export async function getPaymentStatus(Link) {
     let status = "Pending";

@@ -1,6 +1,4 @@
-const axios=require("axios");
-
-
+import axios from "axios";
 
 export function message(phon_no_id, from, msg) {
     axios({

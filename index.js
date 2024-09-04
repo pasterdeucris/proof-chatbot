@@ -7,12 +7,12 @@ const fs = require('fs');
 const path = require('path');
 
 //const AWS = require('aws-sdk');
-const { menuItems } = require('./utils/constants.js');
-const { main1, createAssistant } = require('./openai/openai.js');
-const { message, messageP, getAudio, getURL } = require('./utils/whatsapp.js');
-const { convertOggToMp3, transcribeAudio } = require('./utils/media.js');
-const { updatePaymentstatus } = require('./payment/payment.js');
-const { obtainFlujo, getThread, AssignFlow, getphon_no_id } = require('./database/database.js');
+import { menuItems } from './utils/constants.mjs';
+import { main1, createAssistant } from './openai/openai.mjs';
+import { message, messageP, getAudio, getURL } from './utils/whatsapp.mjs';
+import { convertOggToMp3, transcribeAudio } from './utils/media.mjs';
+import { updatePaymentstatus } from './payment/payment.mjs';
+import { obtainFlujo, getThread, AssignFlow, getphon_no_id } from './database/database.mjs';
 
 const app=express().use(body_parser.json());
 
