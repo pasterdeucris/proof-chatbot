@@ -1,9 +1,9 @@
 const { OpenAI } = require("openai");
 
-const { tool1, tool2, tool3, tool4, tool5, tool6, tool7, tool8, prompt } = require('./utils/constants.js');
-const { messageP, reservation, feedback, sendCatalogMessage } = require('./utils/whatsapp.js');
-const { getPaymentStatus, saveLink, getPaymentLink } = require('./payment/payment.js');
-const { AssignFlow, getName } = require('./database/database.js');
+const { tool1, tool2, tool3, tool4, tool5, tool6, tool7, tool8, prompt } = require('../utils/constants.js');
+const { messageP, reservation, feedback, sendCatalogMessage } = require('../utils/whatsapp.js');
+const { getPaymentStatus, saveLink, getPaymentLink } = require('../payment/payment.js');
+const { AssignFlow, getName } = require('../database/database.js');
 
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY // This is also the default, can be omitted
